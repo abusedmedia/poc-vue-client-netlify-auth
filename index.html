@@ -34,7 +34,7 @@
           axios.post('http://test1.presenta.cc/login', 
             ob)
             .then(data => {
-              console.log(data.data)
+              console.log(JSON.stringify(data.data))
               this.status = data.data
             })
         },
@@ -42,7 +42,7 @@
         check(){
           axios.get('http://test1.presenta.cc/api/private')
             .then(data => {
-              console.log(data.data)
+              console.log(JSON.stringify(data.data))
               this.status = data.data
             })
         },
@@ -50,7 +50,7 @@
         logout(){
           axios.get('http://test1.presenta.cc/logout')
             .then(data => {
-              console.log(data.data)
+              console.log(JSON.stringify(data.data))
               this.status = data.data
             })
         }
