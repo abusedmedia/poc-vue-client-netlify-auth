@@ -3,8 +3,8 @@
 <head>
   <title></title>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 </head>
 <body>
   <div id="app">
@@ -31,7 +31,7 @@
       methods:{
         login(){
           var ob = {username:this.user, password:this.pass}
-          axios.post('http://test1.presenta.cc/login', 
+          axios.post('//test1.presenta.cc/login', 
             ob)
             .then(data => {
               console.log(data.data)
@@ -40,7 +40,7 @@
         },
 
         check(){
-          axios.get('http://test1.presenta.cc/api/private')
+          axios.get('//test1.presenta.cc/api/private')
             .then(data => {
               console.log(data.data)
               this.status = JSON.stringify(data.data)
@@ -48,7 +48,7 @@
         },
 
         logout(){
-          axios.get('http://test1.presenta.cc/logout')
+          axios.get('//test1.presenta.cc/logout')
             .then(data => {
               console.log(data.data)
               this.status = JSON.stringify(data.data)
