@@ -8,34 +8,50 @@
 </head>
 <body>
   <div id="app">
+    <textarea v-model="status"></textarea>
     <input type="text" v-model="user" />
     <input type="password" v-model="pass" />
     <button @click="login">login</button>
 
     <button @click="check">check auth</button>
+    <button @click="logout">logout</button>
   </div>
 
   <script type="text/javascript">
+
+    axios.defaults.withCredentials = true
+
     new Vue({
       el: '#app',
       data: {
           user: 'pippo',
-          pass: 'pluto'
+          pass: 'pluto',
+          status:''
       },
       methods:{
         login(){
           var ob = {username:this.user, password:this.pass}
-          axios.post('http://localhost:3000/login', 
+          axios.post('http://test1.presenta.cc/login', 
             ob)
             .then(data => {
               console.log(data.data)
+              this.status = data.data
             })
         },
 
         check(){
-          axios.get('http://localhost:3000/api/private')
+          axios.get('http://test1.presenta.cc/api/private')
             .then(data => {
               console.log(data.data)
+              this.status = data.data
+            })
+        },
+
+        logout(){
+          axios.get('http://test1.presenta.cc/logout')
+            .then(data => {
+              console.log(data.data)
+              this.status = data.data
             })
         }
         
